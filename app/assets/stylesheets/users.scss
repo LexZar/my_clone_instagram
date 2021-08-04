@@ -1,3 +1,21 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.follower-info {
+    background: #f9fafb; 
+    padding: 10px;
+    border: 1px solid #999;
+}
+.username {
+    background:#f9fafb;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    padding: 20px;
+    border: 1px solid #999;
+    width: 750px;
+}
+.description {
+    background: #f9fafb;
+    padding: 10px;
+    border: 1px solid #999;
+    width: 750px;
+}

@@ -1,1 +1,27 @@
-.................home/homepage
+<br />
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <% Photo.all.each do |photo|%>
+      <div class="username">
+      <%= photo.user.username %>
+      </div>  
+      <%= image_tag photo.image.url, width: "750px", height: "auto" %>
+      <div class="description">
+        <% if photo.title? %>
+        <strong><p><%= photo.user.username %> </strong>
+        <% end %>
+        <%= photo.title %></p> <br /> 
+        <p> created <%=time_ago_in_words photo.created_at %> ago </p> 
+      </div>
+      <br /> 
+      <%end%>
+    </div>
+    <div class="col-4">
+      <div class="follower-info">
+        <%= current_user.username%><br />
+        <%= current_user.full_name%>
+      </div>
+    </div>
+  </div>
+</div>
