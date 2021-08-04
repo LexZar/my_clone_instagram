@@ -29,6 +29,9 @@ gem 'turbolinks', '~> 5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'shrine', '~> 3.2'
+gem "image_processing", '~> 1.10'
+gem "mini_magick", ">= 4.3.5"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
