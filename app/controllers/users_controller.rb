@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:profile]
 
-  def index
+  def homepage
     @photo = Photo.all
+    @comment = Comment.new
   end
 
   def profile

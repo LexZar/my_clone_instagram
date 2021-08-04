@@ -12,7 +12,15 @@
         <strong><p><%= photo.user.username %> </strong>
         <% end %>
         <%= photo.title %></p> <br /> 
+        <%= render "photos/comments", photo: photo %> <br /> 
         <p> created <%=time_ago_in_words photo.created_at %> ago </p> 
+      </div>
+      <div>
+      <%= form_for @comment do |form| %>
+      <%= form.hidden_field :photo_id, value: photo.id %>
+      <%= form.text_field :comment, placeholder: "add comment...." %>
+      <%= form.submit "Add" %>
+      <% end %>
       </div>
       <br /> 
       <%end%>
