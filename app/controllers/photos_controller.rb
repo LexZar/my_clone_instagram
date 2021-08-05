@@ -5,6 +5,9 @@ class PhotosController < ApplicationController
   def index
     @photos = Photo.all
   end
+  def profile
+    @photos = Photo.all
+  end
 
   # GET /photos/1
   def show

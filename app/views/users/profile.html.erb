@@ -1,14 +1,16 @@
 <br />
 <div class="container">
-  <%= current_user.username%> <%= link_to "Edit Account",edit_user_registration_path%><br />
-  <a>Photoposts:<%=  current_user.photos.size.to_s %></a><br />
-  <%= current_user.full_name%>
+  <%= @user.username%> <br />
+  <a>Photoposts:<%= @user.photos.size.to_s %></a><br />
+  <a>Subscriptions:<%= @user.all_followers %></a><br />
+  <a>Subscribers:<%= @user.all_following %></a><br />
+  <%= @user.full_name%>
 </div>
 <br />
 <div class="row">
   <div class="col-12">
-<% @photos.each do |photo|%> 
-<%= image_tag photo.image.url, width: "500px", height: "450px" %>
+   <% @photos.each do |photo|%>  
+   <%= image_tag photo.image.url, width: "500px", height: "450px" %>
 <% end %>
 </div>
 </div>

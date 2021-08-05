@@ -2,15 +2,22 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:profile]
 
-  def homepage
-    @photo = Photo.all
-    @comment = Comment.new
+  def profile
+    @photos = @user.photos
   end
 
-  def profile
-    @photos = current_user.photos
+  def follow_user
+    follower_id = params[:follow_id]
+    Follower.create(follower_id: current_user.id, following_id: follower_id)
+    redirect_to root_path
   end
   
+  def unfollow_user
+    unfollow_id = params[:unfollow_id]
+    Follower.find_by(follower_id: current_user).destroy
+    redirect_to root_path
+  end
+
   def set_user
     @user = User.find_by_username(params[:username])
   end
