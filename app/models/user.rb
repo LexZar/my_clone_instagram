@@ -8,4 +8,12 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def all_followers
+    Follower.where(follower_id: self.id).count
+  end
+
+  def all_following
+    Follower.where(following_id: self.id).count
+  end
 end

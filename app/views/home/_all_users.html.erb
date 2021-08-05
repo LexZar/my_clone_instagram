@@ -1,0 +1,8 @@
+<% @all_users.each do |user|%>
+<%=link_to  user.username , profile_path(user.username) %> <br />
+<%= form_tag follow_user_path, metod: :post do %>
+<%= hidden_field_tag :follow_id , user.id %> 
+<%= submit_tag "Follow"%>
+<% end %>
+<% end %>
+
