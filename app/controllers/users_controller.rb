@@ -13,7 +13,9 @@ class UsersController < ApplicationController
   end
   
   def unfollow_user
-   
+    unfollow_id = params[:unfollow_id]
+    Follower.find_by(follower_id: current_user).destroy
+    redirect_to root_path
   end
 
   def set_user

@@ -2,5 +2,8 @@
 <%= user.username %>
 <% @follow_users.each do %>
 <% end %>
+<%= form_tag unfollow_user_path, metod: :delete do %>
+<%= hidden_field_tag :unfollow_id , user.id %> 
 <%= submit_tag "Unfollow"%> <br />
+<% end %>
 <% end %>
