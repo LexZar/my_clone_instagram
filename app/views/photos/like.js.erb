@@ -1,0 +1,6 @@
+<% if @success == true %>
+$(".like-<%= @photo_id %>").addClass("active");
+<% else %>
+$(".like-<%= @photo_id %>").removeClass("active");
+<% end %>
+$("#photo-<%= @photo_id%>-likes").text("<%= @photo_likes %> likes");

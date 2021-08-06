@@ -4,6 +4,7 @@ class User < ApplicationRecord
   
   has_many :photos 
   has_many :comments
+  has_many :likes
 
   def full_name
     "#{first_name} #{last_name}"

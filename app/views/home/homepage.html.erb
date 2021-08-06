@@ -8,8 +8,12 @@
       </div>  
       <%= image_tag photo.image.url, width: "750px", height: "auto" %>
       <div class="description">
+      <div class="photo-actions">
+         <i class="fa fa-heart like-<%= photo.id %> <%= 'active' if photo_liked_by_user?(photo.id) %> fa-2x photo-like" data-id="<%= photo.id %>"> </i> 
+      </div>
+      <p><strong id="photo-<%= photo.id%>-likes"><%= photo .total_likes_count %> likes </strong></p>
         <% if photo.title? %>
-        <strong><p><%= photo.user.username %> </strong>
+        <p><strong><%= photo.user.username %> </strong></p>
         <% end %>
         <%= photo.title %></p> <br /> 
         <%= render "photos/comments", photo: photo %> <br /> 
