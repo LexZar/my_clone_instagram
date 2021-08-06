@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_04_101607) do
+ActiveRecord::Schema.define(version: 2021_08_06_164546) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "photo_id"
@@ -31,12 +31,29 @@ ActiveRecord::Schema.define(version: 2021_08_04_101607) do
     t.index ["following_id"], name: "index_followers_on_following_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "photo_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["photo_id"], name: "index_likes_on_photo_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string "title"
     t.text "image_data"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cached_votes_total", default: 0
+    t.integer "cached_votes_score", default: 0
+    t.integer "cached_votes_up", default: 0
+    t.integer "cached_votes_down", default: 0
+    t.integer "cached_weighted_score", default: 0
+    t.integer "cached_weighted_total", default: 0
+    t.float "cached_weighted_average", default: 0.0
+    t.integer "total_likes_count"
     t.index ["user_id"], name: "index_photos_on_user_id"
   end
 
