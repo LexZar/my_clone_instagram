@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-8">
-      <% Photo.all.each do |photo|%>
+      <% @photo_tape.all.sort_by{|obj| obj['date']}.reverse.each do |photo|%>
       <div class="username">
       <%=link_to photo.user.username, profile_path(photo.user.username) %>
       </div>  
