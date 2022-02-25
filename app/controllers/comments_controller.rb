@@ -12,9 +12,15 @@ class CommentsController < ApplicationController
       end
     end
 
+    def destroy
+      @comment = Comment.find(params[:id])
+      @comment.destroy
+      redirect_to root_path, notice: 'Comment was successfully destroyed.'
+    end
+
     private
-     
-      def comment_params
-        params.require(:comment).permit(:comment,:photo_id)
-      end
+
+    def comment_params
+      params.require(:comment).permit(:comment,:photo_id)
+    end
   end

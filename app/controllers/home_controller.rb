@@ -3,9 +3,9 @@ class HomeController < ApplicationController
 
   def homepage
     @photo_tape = Photo.where.not(user_id: current_user.id)
-    
     @photo = Photo.all
     @comment = Comment.new
+    
     following_id = Follower.where(follower_id: current_user.id).map(&:following_id)
     following_id << current_user.id
     @all_users = User.where.not(id: following_id)
