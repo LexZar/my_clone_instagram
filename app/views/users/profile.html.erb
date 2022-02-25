@@ -9,9 +9,11 @@
 <br />
 <div class="row">
   <div class="col-12">
-   <% @photos.each do |photo|%>  
-   <%= image_tag photo.image.url, width: "500px", height: "450px" %>
+   <% @photos.each do |photo|%> 
+   <%= image_tag photo.image.url, width: "500px", height: "450px"%>
+   <% if photo.user_id == current_user.id && user_signed_in? %>
    <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 <% end %>
 </div>
 </div>

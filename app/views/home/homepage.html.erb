@@ -16,8 +16,8 @@
         <p><strong><%= photo.user.username %> </strong></p>
         <% end %>
         <%= photo.title %></p> <br /> 
-        <%= render "photos/comments", photo: photo %> <br /> 
-        <p> created <%=time_ago_in_words photo.created_at %> ago </p> 
+        <%= render "photos/comments", photo: photo %> <br />
+        <p> created <%=time_ago_in_words photo.created_at %> ago </p>
       </div>
       <div>
       <%= form_for @comment do |form| %>

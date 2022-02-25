@@ -28,7 +28,7 @@ class PhotosController < ApplicationController
     @photo.user_id = current_user.id if user_signed_in?
 
     if @photo.save
-      redirect_to root_path
+      redirect_to profile_path(current_user.username)
     else
       render :new
     end
