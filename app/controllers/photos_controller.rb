@@ -46,8 +46,12 @@ class PhotosController < ApplicationController
 
   # DELETE /photos/1
   def destroy
-    @photo.destroy
-    redirect_to photos_url, notice: 'Photo was successfully destroyed.'
+    if @photo.user_id == current_user.id && user_signed_in?
+      @photo.destroy
+      redirect_to profile_path(current_user.username), notice: 'Photo was successfully destroyed.'
+    else
+      redirect_to root_path, notice: 'Photo was not destroyed.' 
+    end
   end
 
   private
