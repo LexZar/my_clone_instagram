@@ -6,4 +6,4 @@ Clone instagram (registration, adding photos, comments, subscriptions, likes)
 
 * Rails 6.1.4
 
-* Heroku: https://radiant-tor-83045.herokuapp.com/
+* https://aqueous-reef-61006.herokuapp.com/
